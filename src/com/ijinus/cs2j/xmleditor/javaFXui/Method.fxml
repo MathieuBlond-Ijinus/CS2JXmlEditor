@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import com.ijinus.cs2j.xmleditor.javaFXui.*?>
+
+<fx:root styleClass="block" type="VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<GridPane>
+			<columnConstraints>
+				<ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+				<ColumnConstraints hgrow="SOMETIMES" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+      				<Label alignment="TOP_RIGHT" text="Name : " wrapText="true" />
+				<Label alignment="TOP_RIGHT" text="Type params : " wrapText="true" GridPane.rowIndex="1" />
+				<Label alignment="TOP_RIGHT" text="Return : " wrapText="true" GridPane.rowIndex="2" />
+				<EditableText fx:id="name" alignment="TOP_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+				<ComplexListTemplateController fx:id="typeParams" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<EditableText fx:id="returnType" alignment="TOP_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+			</children>
+		</GridPane>
+	</children>
+</fx:root>

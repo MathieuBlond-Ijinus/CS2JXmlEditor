@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.ijinus.cs2j.xmleditor.javaFXui.ComplexListTemplateController">
+  <panes>
+    <TitledPane styleClass="background" fx:id="titledPane" animated="true" text="attribute">
+         <content>
+            <VBox fx:id="vBox">
+               <children>
+               </children>
+            </VBox>
+         </content>
+    </TitledPane>
+  </panes>
+</Accordion>

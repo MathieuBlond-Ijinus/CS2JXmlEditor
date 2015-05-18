@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.*?>
+
+<FlowPane alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+	<children>
+		<Text id="filePath" text="PATH" textAlignment="center">
+         <font>
+            <Font size="36.0" />
+         </font></Text>
+	</children>
+</FlowPane>

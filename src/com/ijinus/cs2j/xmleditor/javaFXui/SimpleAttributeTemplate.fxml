@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root fx:id="box" hgap="10.0" type="javafx.scene.layout.GridPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <Label fx:id="key" minHeight="0.0" minWidth="0.0" text="attributeName : " GridPane.halignment="RIGHT" />
+      <TextField fx:id="value" minHeight="0.0" minWidth="0.0" text="attributeValue" GridPane.columnIndex="1" />
+   </children>
+</fx:root>

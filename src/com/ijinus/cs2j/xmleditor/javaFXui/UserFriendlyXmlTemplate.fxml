@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import com.ijinus.cs2j.xmleditor.javaFXui.*?>
+
+<fx:root fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" styleClass="background" type="ScrollPane" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <GridPane hgap="10.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.25" minWidth="0.0" percentWidth="5.0" prefWidth="0.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="330.75" minWidth="10.0" percentWidth="30.0" prefWidth="330.75" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="5.0" prefWidth="34.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints minHeight="9.0" prefHeight="18.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <BorderPane GridPane.columnIndex="1" GridPane.columnSpan="3">
+               <center>
+                  <Label fx:id="fileName" alignment="CENTER" contentDisplay="CENTER" styleClass="title" text="Title" wrapText="true" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <GridPane alignment="CENTER" hgap="10.0" styleClass="tile" vgap="10.0" BorderPane.alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints percentHeight="25.0" vgrow="SOMETIMES" />
+                  <RowConstraints percentHeight="25.0" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="25.0" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="25.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  	<children>
+                  		<SimpleAttributeTemplate fx:id="csName" />
+                  	</children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  	<children>
+                  		<SimpleAttributeTemplate fx:id="javaName" />
+                  	</children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  	<children>
+                  		<SimpleAttributeTemplate fx:id="boxedJava" />
+                  	</children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <BorderPane styleClass="tile" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <center>
+                  <ComplexListTemplateController fx:id="inherits" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT" />
+               </center>
+               <top>
+                  <Label text="Inherits" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+            <BorderPane styleClass="tile" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <center>
+                  <ComplexListTemplateController fx:id="uses" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT" />
+               </center>
+               <top>
+                  <Label text="Uses" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+            <BorderPane styleClass="tile" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <center>
+                  <ComplexListTemplateController fx:id="imports" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT" />
+               </center>
+               <top>
+                  <Label text="Imports" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+            <BorderPane styleClass="tile" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
+               <center>
+                  <ComplexListTemplateController fx:id="constructors" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT" />
+               </center>
+               <top>
+                  <Label text="Constructors" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+            <BorderPane styleClass="tile" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="4">
+               <center>
+                  <ComplexListTemplateController fx:id="methods" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT" />
+               </center>
+               <top>
+                  <Label text="Methods" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+            <BorderPane styleClass="tile" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="5">
+               <center>
+                  <ComplexListTemplateController fx:id="properties" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT" />
+               </center>
+               <top>
+                  <Label text="Properties" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+         </children>
+      </GridPane>
+   </content>
+</fx:root>

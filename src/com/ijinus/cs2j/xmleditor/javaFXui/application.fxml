@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.textfield.*?>
+<?import com.ijinus.cs2j.xmleditor.javaFXui.*?>
+
+<fx:root fx:id="mainPane" prefHeight="600.0" prefWidth="800.0" styleClass="background" type="BorderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="LEL" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <bottom>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                <Button mnemonicParsing="false" onAction="#handleNewFile" text="New" />
+                  <Button mnemonicParsing="false" onAction="#handleOpenFile" text="Open" />
+                  <Button mnemonicParsing="false" onAction="#handleSaveFile" text="Save" />
+              </items>
+            </ToolBar>
+         </bottom>
+      </BorderPane>
+   </top>
+   <center>
+      <SplitPane fx:id="splitPane" dividerPositions="0.175" BorderPane.alignment="CENTER">
+         <items>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ScrollPane minWidth="100.0" prefHeight="800.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <VBox fx:id="availableXmlList" prefWidth="300.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="tabAnchorPane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+               	  <TabTemplateController fx:id="tabController"/>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </center>
+</fx:root>

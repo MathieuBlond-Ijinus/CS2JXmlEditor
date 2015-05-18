@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.ijinus.cs2j.xmleditor.javaFXui.*?>
+
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="FileTab">
+	<content>
+		<UserFriendlyXmlTemplateController fx:id="xmlFileDisplay"/>
+	</content>
+</fx:root>
+
