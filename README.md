@@ -13,6 +13,7 @@ This software is an editor for [CS2J](https://github.com/MathieuBlond-Ijinus/cs2
     * Constructors
     * Methods
     * Properties
+3. See **each** translation files present in  a specific folder, and simply open them with a double click.
 
 ### Known issues
 
