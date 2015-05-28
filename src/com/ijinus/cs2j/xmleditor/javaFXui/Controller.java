@@ -37,6 +37,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
 import com.ijinus.cs2j.xmleditor.xml.model.InterfaceRepTemplate;
@@ -70,7 +71,17 @@ public class Controller extends BorderPane{
         
 		//fileList = FXCollections.observableArrayList();
 		fileList = new ArrayList<File>();
-		this.readAllFilesFromFolder(new File(MainWindow.path));
+		File rootFile = new File(MainWindow.path);
+		if(rootFile.exists())
+			this.readAllFilesFromFolder(rootFile);
+		else{
+			DirectoryChooser chooser = new DirectoryChooser();
+			chooser.setTitle("Please show me your NetFramework directory ... :(");
+			File selectedDirectory = chooser.showDialog(MainWindow.getInstance().getStage());
+			this.readAllFilesFromFolder(selectedDirectory);
+			MainWindow.path = selectedDirectory.getAbsolutePath();
+		}
+			
 		
 		Collections.sort(fileList, new Comparator<File>() {
 

@@ -24,6 +24,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import com.ijinus.cs2j.xmleditor.xml.XmlSerialization;
 import com.ijinus.cs2j.xmleditor.xml.model.InterfaceRepTemplate;
@@ -41,6 +42,7 @@ public class MainWindow extends Application{
 	public static String path = "C:/Users/mblond/Documents/CS2J/cs2j/CSharpTranslator/src/CS2JTranslator/NetFramework/";
 	
 	private static MainWindow INSTANCE;
+	private Stage primaryStage;
 	
 	private ObservableList<InterfaceRepTemplate> _interfacesList;
 	
@@ -62,9 +64,8 @@ public class MainWindow extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		
-		//FXMLLoader loader = new FXMLLoader(getClass().getResource("application.fxml"));
+		primaryStage = stage;
 		
-		//mainPane = (Controller) loader.load();
 		mainPane = new Controller();
 		Scene scene = new Scene(mainPane);
 
@@ -87,6 +88,7 @@ public class MainWindow extends Application{
 		return _interfacesList;
 	}
 	
+	public Stage getStage(){ return primaryStage; }
 	public static MainWindow getInstance(){ return INSTANCE; }
 
 }
