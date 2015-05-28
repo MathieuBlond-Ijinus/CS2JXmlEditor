@@ -1,5 +1,7 @@
 package com.ijinus.cs2j.xmleditor.javaFXui;
 
+import static com.ijinus.utilities.IOUtilities.println;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,12 +13,12 @@ import java.util.Comparator;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
 import com.ijinus.cs2j.xmleditor.xml.model.InterfaceRepTemplate;
@@ -25,7 +27,7 @@ public class Controller extends BorderPane{
 	
 	ArrayList<File> fileList;
 	
-	private FXFrameTest _mainFrame;
+	private MainWindow _mainFrame;
 	@FXML private TabTemplateController tabController;
 	
 	@FXML private SplitPane splitPane;
@@ -50,7 +52,7 @@ public class Controller extends BorderPane{
         
 		//fileList = FXCollections.observableArrayList();
 		fileList = new ArrayList<File>();
-		this.readAllFilesFromFolder(new File(FXFrameTest.path));
+		this.readAllFilesFromFolder(new File(MainWindow.path));
 		
 		Collections.sort(fileList, new Comparator<File>() {
 
@@ -62,22 +64,20 @@ public class Controller extends BorderPane{
 		});
 		
 		for(final File file : fileList){
-			Text text = new Text(file.getName());
+			Label text = new Label(file.getName());
 			text.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 				@Override
 				public void handle(MouseEvent event) {
 					if(event.getClickCount()==2){
 						if(file != null){
-							try {
-								InterfaceRepTemplate newFile = FXFrameTest.serializer.deserialize(new FileInputStream(file),file.getName());
-								
-								_mainFrame.getData().add(newFile);
-								tabController.newTab(newFile);
-							} catch (FileNotFoundException e) {
-								e.printStackTrace();
-							}
+							println("Opening file "+file.getAbsolutePath());
+							InterfaceRepTemplate newFile = MainWindow.serializer.deserialize(file.getParent()+"\\",file.getName());
+							
+							_mainFrame.getData().add(newFile);
+							tabController.newTab(newFile);
 						}
+						
 					}
 					
 				}
@@ -85,12 +85,15 @@ public class Controller extends BorderPane{
 			});
 			availableXmlList.getChildren().add(text);
 		}
+		
+		availableXmlList.getStyleClass().add("xml-list");
+		availableXmlList.getStyleClass().add("background");
 
 	}
 	
 	@FXML
 	private void handleNewFile(){
-		InterfaceRepTemplate newFile = FXFrameTest.serializer.deserialize(getClass().getResourceAsStream("Untitled.xml"),"Untitled.xml");
+		InterfaceRepTemplate newFile = MainWindow.serializer.deserialize(getClass().getResourceAsStream("Untitled.xml"),"Untitled.xml");
 		_mainFrame.getData().add(newFile);
 		//tabController.refresh();
 		tabController.newTab(newFile);
@@ -108,7 +111,7 @@ public class Controller extends BorderPane{
 		
 		if(file != null){
 			try {
-				InterfaceRepTemplate newFile = FXFrameTest.serializer.deserialize(new FileInputStream(file),file.getName());
+				InterfaceRepTemplate newFile = MainWindow.serializer.deserialize(new FileInputStream(file),file.getName());
 				
 				_mainFrame.getData().add(newFile);
 				tabController.newTab(newFile);
@@ -118,8 +121,18 @@ public class Controller extends BorderPane{
 		}
 	}
 	
-	@FXML 
+	@FXML
 	private void handleSaveFile(){
+		InterfaceRepTemplate fileToSave = ((FileTab)tabController.getSelectionModel().getSelectedItem()).getData();
+		if(fileToSave.getFilePath()!=null && !fileToSave.getFilePath().equals("")){
+			MainWindow.serializer.serialize(fileToSave, new File(fileToSave.getFilePath()+fileToSave.getFileName()));
+		}
+		else
+			handleSaveAsFile();
+	}
+	
+	@FXML 
+	private void handleSaveAsFile(){
 		InterfaceRepTemplate fileToSave = ((FileTab)tabController.getSelectionModel().getSelectedItem()).getData();
 		FileChooser fileChooser = new FileChooser();
 
@@ -128,15 +141,17 @@ public class Controller extends BorderPane{
 		fileChooser.getExtensionFilters().add(extFilter);
 
 		//Show save file dialog
+		fileChooser.setTitle("Save As");
+        fileChooser.setInitialDirectory(new File(MainWindow.path)); 
 		File file = fileChooser.showSaveDialog(null);
 
 		if(file != null){
-			FXFrameTest.serializer.serialize(fileToSave, file);
+			MainWindow.serializer.serialize(fileToSave, file);
 		}
 
 	}
 	
-	public void setMainFrame(FXFrameTest mainFrame){
+	public void setMainFrame(MainWindow mainFrame){
 		_mainFrame = mainFrame;
 		
 		tabController.setMainFrame(_mainFrame);

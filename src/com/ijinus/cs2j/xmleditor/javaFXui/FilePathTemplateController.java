@@ -5,7 +5,7 @@ import javafx.scene.text.Text;
 
 public class FilePathTemplateController {
 	
-	private FXFrameTest _mainFrame;
+	private MainWindow _mainFrame;
 	
 	@FXML
 	private Text filePath;
@@ -23,6 +23,6 @@ public class FilePathTemplateController {
 		
 	}
 	
-	public void setMainFrame(FXFrameTest mainFrame){ _mainFrame = mainFrame; }
+	public void setMainFrame(MainWindow mainFrame){ _mainFrame = mainFrame; }
 
 }

@@ -12,6 +12,7 @@ public class InterfaceRepTemplate extends TypeRepTemplate{
 	 */
 	
 	protected transient String _fileName;
+	protected transient String _filePath;
 	
 	@XStreamAsAttribute
 	@XStreamAlias("xmlns:xsi")
@@ -40,9 +41,8 @@ public class InterfaceRepTemplate extends TypeRepTemplate{
 	 * Getters
 	 */
 	
-	public String getFileName() {
-		return _fileName;
-	}
+	public String getFileName() { return _fileName; }
+	public String getFilePath() { return _filePath; }
 
 	public List<MethodRepTemplate> getMethods() {
 		// TODO Auto-generated method stub
@@ -74,6 +74,7 @@ public class InterfaceRepTemplate extends TypeRepTemplate{
 	 */
 	
 	public void setFileName(String fileName){ _fileName = fileName; }
+	public void setFilePath(String filePath){ _filePath = filePath; }
 
 	public void setMethods(List<MethodRepTemplate> methods) {
 		Methods = methods;

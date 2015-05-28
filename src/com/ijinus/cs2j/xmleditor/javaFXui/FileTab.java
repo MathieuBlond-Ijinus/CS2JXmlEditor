@@ -42,7 +42,7 @@ public class FileTab extends Tab{
 		this.setOnClosed(new EventHandler<Event>(){
 		    @Override
 			public void handle(Event e){
-		        FXFrameTest.getInstance().getData().remove(_file);
+		        MainWindow.getInstance().getData().remove(_file);
 		    }
 		});
 		

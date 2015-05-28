@@ -14,7 +14,7 @@ public class TabTemplateController extends TabPane{
 
 	public static FileTab ACTIVE_TAB;
 	
-	private FXFrameTest _mainFrame;	
+	private MainWindow _mainFrame;	
 	
 	public TabTemplateController(){
 		
@@ -34,7 +34,7 @@ public class TabTemplateController extends TabPane{
 	public void initialize(){
 	}
 	
-	public void setMainFrame(FXFrameTest mainFrame){ _mainFrame = mainFrame; }
+	public void setMainFrame(MainWindow mainFrame){ _mainFrame = mainFrame; }
 	
 	public void populate(){
 		for(InterfaceRepTemplate file : _mainFrame.getData()){
@@ -55,6 +55,7 @@ public class TabTemplateController extends TabPane{
 
 	public void newTab(InterfaceRepTemplate newFile) {
 		this.getTabs().add(new FileTab(newFile));		
+		this.getSelectionModel().selectLast();
 	}
 	
 }

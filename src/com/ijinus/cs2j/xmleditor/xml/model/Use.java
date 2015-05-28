@@ -4,7 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import com.thoughtworks.xstream.converters.extended.ToAttributedValueConverter;
 
-@XStreamAlias("Name")
+@XStreamAlias("Use")
 @XStreamConverter(value=ToAttributedValueConverter.class, strings={"Name"})
 public class Use implements ValueableObject{
 	

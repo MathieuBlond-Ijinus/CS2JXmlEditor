@@ -11,6 +11,7 @@ public class MethodRepTemplate extends ConstructorRepTemplate {
 	
 	private String Name;
 	private List<TypeParam> TypeParams;
+	private List<TypeParam> ParamArray;
 	private String Return;
 	
 	/*

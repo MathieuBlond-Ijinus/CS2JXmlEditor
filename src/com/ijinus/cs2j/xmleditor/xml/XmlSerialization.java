@@ -75,10 +75,12 @@ public class XmlSerialization {
 
 	}
 
-	public InterfaceRepTemplate deserialize(String path, String fileName){
+	public InterfaceRepTemplate deserialize(String filePath, String fileName){
 		
 		try {
-			return deserialize(new FileInputStream(path+fileName), fileName);
+			InterfaceRepTemplate object = deserialize(new FileInputStream(filePath+fileName), fileName);
+			object.setFilePath(filePath);
+			return object;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

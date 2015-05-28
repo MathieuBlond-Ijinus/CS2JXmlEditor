@@ -17,27 +17,21 @@ import com.ijinus.cs2j.xmleditor.xml.XmlSerialization;
 import com.ijinus.cs2j.xmleditor.xml.model.InterfaceRepTemplate;
 
 
-public class FXFrameTest extends Application{
+public class MainWindow extends Application{
 	
 	public static XmlSerialization serializer = new XmlSerialization();
-	public static String path = "C:/Users/mblond/Documents/CS2J/cs2j/CSharpTranslator/src/CS2JTranslator/NetFramework/System/";
+	public static String path = "C:/Users/mblond/Documents/CS2J/cs2j/CSharpTranslator/src/CS2JTranslator/NetFramework/";
 	
-	private static FXFrameTest INSTANCE;
+	private static MainWindow INSTANCE;
 	
 	private ObservableList<InterfaceRepTemplate> _interfacesList;
 	
 	private Controller mainPane;
 	
 
-	public FXFrameTest(){
+	public MainWindow(){
 		
 		_interfacesList = FXCollections.observableArrayList();
-		
-		_interfacesList.add(serializer.deserialize(path,"Boolean.xml"));
-		_interfacesList.add(serializer.deserialize(path,"IDisposable.xml"));
-		_interfacesList.add(serializer.deserialize(path,"IEquatable.xml"));
-		_interfacesList.add(serializer.deserialize(path,"Array'1.xml"));
-		_interfacesList.add(serializer.deserialize(path,"DateTime.xml"));
 		
 		INSTANCE = this;
 		
@@ -75,6 +69,6 @@ public class FXFrameTest extends Application{
 		return _interfacesList;
 	}
 	
-	public static FXFrameTest getInstance(){ return INSTANCE; }
+	public static MainWindow getInstance(){ return INSTANCE; }
 
 }
