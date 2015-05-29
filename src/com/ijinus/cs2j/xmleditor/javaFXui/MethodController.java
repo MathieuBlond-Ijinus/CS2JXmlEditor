@@ -27,6 +27,12 @@ import javafx.fxml.FXMLLoader;
 import com.ijinus.cs2j.xmleditor.xml.model.MethodRepTemplate;
 import com.ijinus.cs2j.xmleditor.xml.model.TypeParam;
 
+/**
+ * Represents a method.
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ */
 public class MethodController extends ConstructorController{
 	
 	@FXML private EditableText name;

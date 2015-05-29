@@ -33,6 +33,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
+/**
+ * A couple key(Label) / value (TextField) to represent a field and its modifiable value.
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ */
 public class SimpleAttributeTemplate extends GridPane{
 	
 	private Object _base;

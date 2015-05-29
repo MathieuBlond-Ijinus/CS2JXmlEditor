@@ -36,6 +36,19 @@ import com.ijinus.cs2j.xmleditor.xml.model.MethodRepTemplate;
 import com.ijinus.cs2j.xmleditor.xml.model.PropRepTemplate;
 import com.ijinus.cs2j.xmleditor.xml.model.Use;
 
+/**
+ * Represents a file with its name, C# name, Java name, constructors, methods ...
+ * This is the real main pane of the application because it is the interface the user will most interact with.
+ * 
+ * It is actually not complete and does not show every field of an Interface / Class, so please implement what you need if not already done. 
+ * Just take a look to populate() method to see how it is simple to add some content.
+ * 
+ * All the real work you need to do is in UserFriendlyXmlTemplate.fxml. 
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ *	TODO Add the rest of the fields
+ */
 public class UserFriendlyXmlTemplateController extends ScrollPane{
 	
 	/*

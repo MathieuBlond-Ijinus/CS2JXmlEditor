@@ -43,11 +43,10 @@ import javafx.stage.FileChooser;
 import com.ijinus.cs2j.xmleditor.xml.model.InterfaceRepTemplate;
 
 /**
+ *  The controller used for MainWindow.fxml.
+ *	Represents the main window of CS2JXmlEditor.
  * 
  * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
- *
- *	The controller used for MainWindow.fxml.
- *	Represents the main window of CS2JXmlEditor.
  *
  */
 public class MainWindowController extends BorderPane{

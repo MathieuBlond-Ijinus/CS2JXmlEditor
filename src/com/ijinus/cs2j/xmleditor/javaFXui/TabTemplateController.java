@@ -30,6 +30,12 @@ import javafx.scene.control.TabPane;
 
 import com.ijinus.cs2j.xmleditor.xml.model.InterfaceRepTemplate;
 
+/**
+ * A TabPane a little extended which can be dynamically populated.
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ */
 public class TabTemplateController extends TabPane{
 
 	public static FileTab ACTIVE_TAB;
@@ -65,14 +71,12 @@ public class TabTemplateController extends TabPane{
 		}
 
 	}
-
-	public void refresh() {
-		
-		this.getTabs().clear();
-		populate();
-		
-	}
-
+	
+	/**
+	 * Adds a tab an select it
+	 * 
+	 * @param newFile
+	 */
 	public void newTab(InterfaceRepTemplate newFile) {
 		this.getTabs().add(new FileTab(newFile));		
 		this.getSelectionModel().selectLast();

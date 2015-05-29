@@ -34,8 +34,24 @@ import com.ijinus.cs2j.xmleditor.xml.model.TypeParam;
 import com.ijinus.cs2j.xmleditor.xml.model.Use;
 import com.ijinus.cs2j.xmleditor.xml.model.ValueableObject;
 
+/**
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ *	The general CS2JXmlEditor factory to dynamically create some content like controllers, panes, object instances...
+ *
+ *	TODO Rename the class, since ControllerFactory doesn't only create controllers.
+ *
+ */
 public class ControllerFactory {
 	
+	/**
+	 * Creates a controller depending of the type passed in parameter.
+	 * A controller is basically a part of an interface.
+	 * 
+	 * @param object
+	 * @return a new controller to show the object.
+	 */
 	public static <T> Node getController(T object){
 		
 		if(object instanceof MethodRepTemplate){
@@ -56,17 +72,25 @@ public class ControllerFactory {
 			return new EditableText("Value", object);
 		}
 		
+		/*
+		 * Woaw. Did I really wrote this ? Wondering how to do it better, but no time for the moment.
+		 */
 		else{												
 			try {
 				throw new Exception("Unsuported type : "+object.getClass());
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.getMessage();
 			}
 		}
 		return null;
 	}
 	
+	/**
+	 * Creates a content pane depending of the type passed in parameter.
+	 * 
+	 * @param object
+	 * @return a new Pane
+	 */
 	public static <T> Pane getContentPane(T object){
 		
 		if(object instanceof MethodRepTemplate){
@@ -88,6 +112,12 @@ public class ControllerFactory {
 		
 	}
 
+	/**
+	 * Create an instance of the Class passed in parameter.
+	 * 
+	 * @param type
+	 * @return an instance of T
+	 */
 	public static <T> Object getInstance(Class<T> type){
 
 		if(type.equals(MethodRepTemplate.class)){
@@ -124,6 +154,7 @@ public class ControllerFactory {
 			return new Use();
 		}
 
+		// Much more better than the precedent version
 		System.out.println("This type is actually unsupported :"+type);
 		return null;
 	}

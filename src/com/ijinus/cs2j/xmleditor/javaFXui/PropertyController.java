@@ -26,6 +26,14 @@ import javafx.fxml.FXMLLoader;
 
 import com.ijinus.cs2j.xmleditor.xml.model.PropRepTemplate;
 
+/**
+ * Represent a C# property.
+ * 
+ * I can't figure out why, but Get and Set are inverted in the view.
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ */
 public class PropertyController extends FieldController{
 	
 	private PropRepTemplate _base;
