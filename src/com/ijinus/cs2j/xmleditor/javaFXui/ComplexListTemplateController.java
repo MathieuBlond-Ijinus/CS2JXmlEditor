@@ -32,6 +32,14 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
+/**
+ * The concept of complex list here is a list where both size and type are not hard-coded.
+ * To create the content of this, we use some factory methods to behave the right way.
+ *  
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ * @param <T>
+ */
 public class ComplexListTemplateController<T> extends BorderPane{
 	
 	private List<T> _list;
@@ -105,6 +113,11 @@ public class ComplexListTemplateController<T> extends BorderPane{
 		}
 	}
 	
+	/**
+	 * Adds a new element to the list and refresh <b>all the view</b>
+	 * 
+	 * TODO Look how we could <b>just</b> add the new element, instead of drop everything and rebuild the view.
+	 */
 	public void addNew(){
 		Object temp;
 		temp = ControllerFactory.getInstance(_type);

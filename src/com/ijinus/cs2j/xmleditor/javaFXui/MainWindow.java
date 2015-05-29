@@ -46,7 +46,7 @@ public class MainWindow extends Application{
 	
 	private ObservableList<InterfaceRepTemplate> _interfacesList;
 	
-	private Controller mainPane;
+	private MainWindowController mainPane;
 	
 
 	public MainWindow(){
@@ -66,7 +66,7 @@ public class MainWindow extends Application{
 		
 		primaryStage = stage;
 		
-		mainPane = new Controller();
+		mainPane = new MainWindowController();
 		Scene scene = new Scene(mainPane);
 
 		mainPane.setMainFrame(this);

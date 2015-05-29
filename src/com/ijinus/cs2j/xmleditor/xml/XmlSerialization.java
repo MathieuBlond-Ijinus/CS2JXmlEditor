@@ -47,6 +47,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.io.xml.XmlFriendlyNameCoder;
 
+/**
+ * An abstraction for an easier XStream serialization use.
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ */
 public class XmlSerialization {
 	
 	/*
@@ -61,6 +67,10 @@ public class XmlSerialization {
 	
 	public XmlSerialization(){
 		
+		/*
+		 * The XmlFriendlyNameCoder change the way some XStream fields are named.
+		 * It basically allows to use "has_boxed_rep" without it to become "has__boxed__rep"
+		 */
 		xstream = new XStream(new DomDriver("UTF-8", new XmlFriendlyNameCoder("_-", "_")));
 		makeAliases();
 	}
@@ -69,6 +79,12 @@ public class XmlSerialization {
 	 * Methods
 	 */
 
+	/**
+	 * Serialize a Java class into an CS2J readable XML
+	 * 
+	 * @param object
+	 * @param file
+	 */
 	public void serialize(InterfaceRepTemplate object, File file){		
 		
 		object.xmlns_xsi = "http://www.w3.org/2001/XMLSchema-instance";
@@ -93,6 +109,13 @@ public class XmlSerialization {
 
 	}
 
+	/**
+	 * Deserialize an object
+	 * 
+	 * @param filePath
+	 * @param fileName
+	 * @return
+	 */
 	public InterfaceRepTemplate deserialize(String filePath, String fileName){
 		
 		try {
@@ -107,7 +130,13 @@ public class XmlSerialization {
 		
 	}
 		
-		
+	/**
+	 * Deserialize an object without setting its path
+	 * 
+	 * @param fileStream
+	 * @param fileName
+	 * @return
+	 */
 	public InterfaceRepTemplate deserialize(InputStream fileStream, String fileName){
 		InterfaceRepTemplate object = null; 
 		object = (InterfaceRepTemplate) xstream.fromXML(fileStream);
@@ -115,12 +144,13 @@ public class XmlSerialization {
 		return object;
 	}
 	
+	/**
+	 * Binds XML tags to Java classes.
+	 */
 	public void makeAliases(){
 		
-		//xstream.registerConverter(new JavaBeanConverter(xstream.getMapper(), "class"), 0);
-		
 		/*
-		 * Templates
+		 * Nodes
 		 */
 
 		xstream.processAnnotations(InterfaceRepTemplate.class);

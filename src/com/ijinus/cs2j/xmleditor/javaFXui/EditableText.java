@@ -31,6 +31,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
+/**
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ *	Represents a Label which can be modified on double-click.
+ *	The strategy here is to change the Label to a TextField to allow to modify the text,
+ *	and then change again to a Label.
+ *
+ */
 public class EditableText extends HBox{
 	
 	private Object _file;
@@ -65,6 +74,12 @@ public class EditableText extends HBox{
 
 	}
 	
+	/**
+	 * Creates the content of the Label, defines the events, and restrict the Label/TextField change to avoid empty areas on empty text (see below).
+	 * 
+	 * @param fieldName
+	 * @param file
+	 */
 	public void populate(String fieldName, Object file){
 		
 		_file = file;
@@ -82,7 +97,7 @@ public class EditableText extends HBox{
 		textField.setMinHeight(20);
 		
 		/*
-		 * Avoids a null area unclickable
+		 * Avoids an empty area unclickable
 		 */
 		
 		if(initialValue != null && initialValue.length()>0)
@@ -94,6 +109,9 @@ public class EditableText extends HBox{
 		 * Events
 		 */
 		
+		/*
+		 * On double-click
+		 */
 		text.setOnMouseClicked(new EventHandler<MouseEvent>() {  
 			@Override  
 			public void handle(MouseEvent event) {  
@@ -109,6 +127,9 @@ public class EditableText extends HBox{
 				}  
 			}});
 
+		/*
+		 * On action (tab, enter, ...)
+		 */
 		textField.setOnAction(new EventHandler<ActionEvent>() {  
 			@Override  
 			public void handle(ActionEvent event) {  
@@ -128,6 +149,9 @@ public class EditableText extends HBox{
 
 		});
 
+		/*
+		 * On focus change (to handle clicks in a void area to validate the field)
+		 */
 		textField.focusedProperty().addListener(new ChangeListener<Boolean>() {  
 			@Override  
 			public void changed(ObservableValue<? extends Boolean> observable,  

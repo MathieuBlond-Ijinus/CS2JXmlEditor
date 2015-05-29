@@ -18,6 +18,13 @@
  */
 package com.ijinus.utilities;
 
+/**
+ * Represents some utility functions I often use.
+ * For an easier use, import this class as a static import.
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ */
 public class IOUtilities {
 	
 	public static void separator(String separatorText){

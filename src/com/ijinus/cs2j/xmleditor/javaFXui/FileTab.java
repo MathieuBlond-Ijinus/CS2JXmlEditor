@@ -28,6 +28,13 @@ import javafx.scene.control.Tab;
 
 import com.ijinus.cs2j.xmleditor.xml.model.InterfaceRepTemplate;
 
+/**
+ * 
+ *	Represents a Tab containing a file (e.g an InterfaceRepTemplate)
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ */
 public class FileTab extends Tab{
 	
 	private InterfaceRepTemplate _file;
@@ -57,6 +64,9 @@ public class FileTab extends Tab{
 			e1.printStackTrace();
 		}
 		
+		/*
+		 * When we close the tab, we remove the file from the files list.
+		 */
 		this.setOnClosed(new EventHandler<Event>(){
 		    @Override
 			public void handle(Event e){
