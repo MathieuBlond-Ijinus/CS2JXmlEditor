@@ -42,7 +42,15 @@ import javafx.stage.FileChooser;
 
 import com.ijinus.cs2j.xmleditor.xml.model.InterfaceRepTemplate;
 
-public class Controller extends BorderPane{
+/**
+ * 
+ * @author Mathieu Blond - Ijinus (http://www.ijinus.com/?lang=en)
+ *
+ *	The controller used for MainWindow.fxml.
+ *	Represents the main window of CS2JXmlEditor.
+ *
+ */
+public class MainWindowController extends BorderPane{
 	
 	ArrayList<File> fileList;
 	
@@ -54,8 +62,8 @@ public class Controller extends BorderPane{
 	@FXML private VBox availableXmlList;
 	@FXML private BorderPane mainPane;
 	
-	public Controller(){
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("application.fxml"));
+	public MainWindowController(){
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
 		fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -69,9 +77,15 @@ public class Controller extends BorderPane{
 	@FXML
 	public void initialize() {
         
-		//fileList = FXCollections.observableArrayList();
+		/*
+		 * Loads every file in the NetFramework directory
+		 */
 		fileList = new ArrayList<File>();
 		File rootFile = new File(MainWindow.path);
+		
+		/*
+		 * If the file doesn't exist at the default path, the user is asked to select it
+		 */
 		if(rootFile.exists())
 			this.readAllFilesFromFolder(rootFile);
 		else{
@@ -82,7 +96,9 @@ public class Controller extends BorderPane{
 			MainWindow.path = selectedDirectory.getAbsolutePath();
 		}
 			
-		
+		/*
+		 * We compare the file names
+		 */
 		Collections.sort(fileList, new Comparator<File>() {
 
 			@Override
@@ -92,6 +108,10 @@ public class Controller extends BorderPane{
 			
 		});
 		
+		/*
+		 * We add the files to availableXmlList.
+		 * Files are wrapped into a Label, and opened on double-click.
+		 */
 		for(final File file : fileList){
 			Label text = new Label(file.getName());
 			text.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -115,11 +135,22 @@ public class Controller extends BorderPane{
 			availableXmlList.getChildren().add(text);
 		}
 		
+		/*
+		 * We add some CSS styles
+		 */
 		availableXmlList.getStyleClass().add("xml-list");
 		availableXmlList.getStyleClass().add("background");
 
 	}
 	
+	/**
+	 * Triggered when the "New" button is clicked.
+	 * 
+	 * Opens a new tab "Untitled.xml". We use a cleaned XML (e.g containing just every tag) representing a Class.
+	 * This allows CS2J to instantiate every variable simply, and possibly to add some default text.
+	 * 
+	 * TODO Allow the user to create an Interface
+	 */
 	@FXML
 	private void handleNewFile(){
 		InterfaceRepTemplate newFile = MainWindow.serializer.deserialize(getClass().getResourceAsStream("Untitled.xml"),"Untitled.xml");
@@ -128,6 +159,13 @@ public class Controller extends BorderPane{
 		tabController.newTab(newFile);
 	}
 	
+	/**
+	 * Triggered when the "Open" button is clicked.
+	 * 
+	 * Opens a dialog to choose a file to open.
+	 * 
+	 * TODO Open a window explaining the exception if one is raised.
+	 */
 	@FXML
 	private void handleOpenFile(){
 		FileChooser fileChooser = new FileChooser();
@@ -150,6 +188,12 @@ public class Controller extends BorderPane{
 		}
 	}
 	
+	/**
+	 * Triggered when the "Save" button is clicked.
+	 * 
+	 * Directly saves the file to it's default location if found.
+	 * Else, handleSaveAsFile() is called.
+	 */
 	@FXML
 	private void handleSaveFile(){
 		InterfaceRepTemplate fileToSave = ((FileTab)tabController.getSelectionModel().getSelectedItem()).getData();
@@ -160,6 +204,14 @@ public class Controller extends BorderPane{
 			handleSaveAsFile();
 	}
 	
+	/**
+	 * Triggered by handleSaveFile() when no default location to save a file is found.
+	 * 
+	 * Opens a window at the NetFramework directory to select a file to overwrite, of create one.
+	 * 
+	 * TODO Update the file's default path and name to use handleSaveFile() at the next save.
+	 * TODO Create a "Save as ... " button to trigger this function. (ATM, the @FXML tab is useless).
+	 */
 	@FXML 
 	private void handleSaveAsFile(){
 		InterfaceRepTemplate fileToSave = ((FileTab)tabController.getSelectionModel().getSelectedItem()).getData();
@@ -180,23 +232,37 @@ public class Controller extends BorderPane{
 
 	}
 	
+	/**
+	 * Set tabController's main window reference to mainFrame and populates him with populate().
+	 * This is no longer needed since we have a MainWindow.getInstance();
+	 * 
+	 * @param mainFrame
+	 * 
+	 * TODO Rename this function to populate() and remove every setMainFrame() calls : we have a MainWindow.getInstance();
+	 */
 	public void setMainFrame(MainWindow mainFrame){
 		_mainFrame = mainFrame;
 		
 		tabController.setMainFrame(_mainFrame);
 		tabController.populate();
 		
-		//mainPane.setCenter(tabController);
-		tabAnchorPane.getChildren().remove(0);
-		tabAnchorPane.getChildren().add(tabController);
-		
+		/*
+		 * Make tabController full size
+		 */
 		AnchorPane.setTopAnchor(tabController, 0.0);
 		AnchorPane.setLeftAnchor(tabController, 0.0);
 		AnchorPane.setBottomAnchor(tabController, 0.0);
 		AnchorPane.setRightAnchor(tabController, 0.0);
-		//splitPane.getItems().add(tabController);
+
 	}
 	
+	/**
+	 * A recursive function that adds each files in NetFramework to fileList
+	 * 
+	 * @param folder
+	 * 
+	 * TODO Create a Map instead of a List and adapt the view, so we could see files in their directory.
+	 */
 	public void readAllFilesFromFolder(File folder){
 		
 		for(File fileEntry : folder.listFiles()) {
