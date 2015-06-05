@@ -24,8 +24,8 @@
 			<children>
 				<Label minWidth="0.0" text="Get : " GridPane.columnIndex="0" />
 				<Label minWidth="0.0" text="Set : " GridPane.columnIndex="0" GridPane.rowIndex="1" />
-				<EditableText fx:id="set" minWidth="0.0" GridPane.columnIndex="1" />
-				<EditableText fx:id="get" minWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+				<EditableText fx:id="get" minWidth="0.0" GridPane.columnIndex="1" />
+				<EditableText fx:id="set" minWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 			</children>
 		</GridPane>
 	</children>
