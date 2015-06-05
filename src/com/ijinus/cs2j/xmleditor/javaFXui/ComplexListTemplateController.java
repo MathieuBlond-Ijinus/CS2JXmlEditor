@@ -122,6 +122,9 @@ public class ComplexListTemplateController<T> extends BorderPane{
 		Object temp;
 		temp = ControllerFactory.getInstance(_type);
 		
+		if(_list == null)
+			_list = new ArrayList<T>();
+		
 		_list.add((T) temp);
 		populate();
 	}
