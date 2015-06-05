@@ -21,7 +21,6 @@ This software is an editor for [CS2J](https://github.com/MathieuBlond-Ijinus/cs2
 
 1. Some xml tags are not yet implemented, making file load rise an exception.
 2. The Constructor / Methods / Properties blocks grow as if each element was below the precedent, which is actually not the case.
-3. Get and Set in a Property element are inverted.
 
 
 
