@@ -21,7 +21,7 @@ package com.ijinus.cs2j.xmleditor.xml.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class TranslationBase {
+public abstract class TranslationBase implements Comparable<TranslationBase>{
 	
 	/*
 	 * Attributes
@@ -39,6 +39,15 @@ public abstract class TranslationBase {
 		Imports = new ArrayList<Import>();
 		Java = "";
 		Warning = "";
+	}
+	
+	/*
+	 * Methods
+	 */
+	
+	@Override
+	public int compareTo(TranslationBase other){
+		return this.toString().compareTo(other.toString());
 	}
 	
 	/*

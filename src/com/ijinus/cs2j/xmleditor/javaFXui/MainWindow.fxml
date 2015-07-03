@@ -9,6 +9,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.textfield.*?>
 <?import com.ijinus.cs2j.xmleditor.javaFXui.*?>
+<?import javafx.scene.control.MenuItem?>
 
 <fx:root fx:id="mainPane" prefHeight="600.0" prefWidth="800.0" styleClass="background" type="BorderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
@@ -18,17 +19,21 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem mnemonicParsing="false" text="New" />
+                    <MenuItem mnemonicParsing="false" text="Open" />
+                    <MenuItem mnemonicParsing="false" text="Save" />
+                    <MenuItem mnemonicParsing="false" text="Save As" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
+                    <MenuItem mnemonicParsing="false" text="Undo" />
+                    <MenuItem mnemonicParsing="false" text="Redo" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="LEL" />
+                    <MenuItem mnemonicParsing="false" text="Help me !" />
                   </items>
                 </Menu>
               </menus>

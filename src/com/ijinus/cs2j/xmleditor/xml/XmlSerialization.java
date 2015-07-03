@@ -23,6 +23,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.InputStream;
+import java.util.Calendar;
 
 import com.ijinus.cs2j.xmleditor.xml.model.AliasRepTemplate;
 import com.ijinus.cs2j.xmleditor.xml.model.BinaryOp;
@@ -80,7 +81,7 @@ public class XmlSerialization {
 	 */
 
 	/**
-	 * Serialize a Java class into an CS2J readable XML
+	 * Serialize a Java class into a CS2J readable XML
 	 * 
 	 * @param object
 	 * @param file
@@ -96,13 +97,13 @@ public class XmlSerialization {
 		
 
 		String xmlString = xstream.toXML(object);
-		System.out.println(xmlString);
 		try {
 			FileWriter fileWriter = null;
 
 			fileWriter = new FileWriter(file);
 			fileWriter.write(xmlString);
 			fileWriter.close();
+			System.out.println("Saved "+object.getFileName()+" at "+Calendar.getInstance().getTime());
 		} catch (Exception e) {
 			System.out.println("Couldn't save "+object.getFileName()+" ... "+e.getMessage());
 		}

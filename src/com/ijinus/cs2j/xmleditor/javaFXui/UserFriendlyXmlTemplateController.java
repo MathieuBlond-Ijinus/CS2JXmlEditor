@@ -20,11 +20,13 @@ package com.ijinus.cs2j.xmleditor.javaFXui;
 
 import java.io.IOException;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.VBox;
 
 import com.ijinus.cs2j.xmleditor.xml.model.ClassRepTemplate;
@@ -69,8 +71,8 @@ public class UserFriendlyXmlTemplateController extends ScrollPane{
 	@FXML private ComplexListTemplateController<Use> uses;
 	@FXML private ComplexListTemplateController<Inherit> inherits;
 	@FXML private ComplexListTemplateController<ConstructorRepTemplate> constructors;
-	@FXML private ComplexListTemplateController<MethodRepTemplate> methods;
-	@FXML private ComplexListTemplateController<PropRepTemplate> properties;
+	@FXML private SortedPane<MethodRepTemplate> methods;
+	@FXML private SortedPane<PropRepTemplate> properties;
 	
 	@FXML private Button newImport;
 	@FXML private Button newUse;
@@ -93,6 +95,7 @@ public class UserFriendlyXmlTemplateController extends ScrollPane{
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+        
     }
 	
 	/*

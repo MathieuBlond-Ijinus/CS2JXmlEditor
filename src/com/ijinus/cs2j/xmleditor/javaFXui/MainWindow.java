@@ -75,8 +75,10 @@ public class MainWindow extends Application{
 		 * Creates the scene
 		 */
 		
-		scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
-		
+		try{
+			scene.getStylesheets().add(getClass().getResource("icons/DarkTheme.css").toExternalForm());
+		}catch(Exception e){ System.out.println("Failed to load CSS"); }
+			
 		stage.setTitle("CS2J XML Editor");
 		stage.setScene(scene);
 		stage.show();

@@ -44,26 +44,31 @@ public class MethodRepTemplate extends ConstructorRepTemplate {
 	}
 	
 	/*
+	 * Methods
+	 */
+	
+	@Override
+	public String toString(){
+		return Name;
+	}
+	
+	/*
 	 * Getters
 	 */
 	
 
 	public String getName(){ return Name; }
 	public List<TypeParam> getTypeParams(){ return TypeParams; }
+	public List<TypeParam> getParamArray(){ return ParamArray; }
 	public String getReturn(){ return Return; }
 	
 	/*
 	 * Setters 
 	 */
 	
-	public void setName(String name) {
-		Name = name;
-	}
-	public void setTypeParams(List<TypeParam> typeParams) {
-		TypeParams = typeParams;
-	}
-	public void setReturn(String return1) {
-		Return = return1;
-	}
+	public void setName(String name) { Name = name; }
+	public void setTypeParams(List<TypeParam> typeParams) { TypeParams = typeParams; }
+	public void setParamArray(List<TypeParam> paramArray) { ParamArray = paramArray; }
+	public void setReturn(String return1) { Return = return1; }
 	
 }

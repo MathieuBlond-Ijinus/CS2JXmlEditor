@@ -95,7 +95,7 @@
             </BorderPane>
             <BorderPane styleClass="tile" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="4">
                <center>
-                  <ComplexListTemplateController fx:id="methods" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT" />
+                  <SortedPane fx:id="methods" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT" />
                </center>
                <top>
                   <Label text="Methods" BorderPane.alignment="CENTER" />
@@ -103,7 +103,7 @@
             </BorderPane>
             <BorderPane styleClass="tile" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="5">
                <center>
-                  <ComplexListTemplateController fx:id="properties" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT" />
+                  <SortedPane fx:id="properties" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_LEFT" />
                </center>
                <top>
                   <Label text="Properties" BorderPane.alignment="CENTER" />

@@ -21,6 +21,7 @@ package com.ijinus.cs2j.xmleditor.javaFXui;
 import javafx.scene.Node;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
 import com.ijinus.cs2j.xmleditor.xml.model.ConstructorRepTemplate;
@@ -93,22 +94,27 @@ public class ControllerFactory {
 	 */
 	public static <T> Pane getContentPane(T object){
 		
+		Pane newPane;
+		
 		if(object instanceof MethodRepTemplate){
-			return new FlowPane(10.0,10.0);
+			newPane = new TilePane(10.0,10.0);
+			((TilePane) newPane).setPrefColumns(2);
 		}
 		else if(object instanceof ConstructorRepTemplate){
-			return new FlowPane(10.0,10.0);
+			newPane = new FlowPane(10.0,10.0);
 		}
 		else if(object instanceof PropRepTemplate){
-			return new FlowPane(10.0,10.0);
+			newPane = new FlowPane(10.0,10.0);
 		}
 		/*
 		else if(object instanceof ParamRepTemplate){
 			return new VBox(10.0);
 		}*/
 		else{												
-			return new VBox(10.0);
+			newPane = new VBox(10.0);
 		}
+		
+		return newPane;
 		
 	}
 

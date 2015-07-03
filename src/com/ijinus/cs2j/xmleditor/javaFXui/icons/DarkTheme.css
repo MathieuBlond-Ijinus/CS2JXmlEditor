@@ -33,10 +33,14 @@
 
 .block {
 	-fx-alignment: top-left;
-	-fx-background-color:#993333;
+	-fx-background-color:rgb(112,184,255);
 	-fx-background-radius: 0px;
 	
 	-fx-padding: 10px;
+}
+
+.block:hover{
+	-fx-background-color:rgb(150,100,255);
 }
 
 .xml-list{
@@ -53,7 +57,7 @@
 
 .block .label {
 	-fx-font-size: 16pt;
-    -fx-font-family: "Segoe UI Light";
+    -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: white;
     -fx-opacity: 1;
 }
